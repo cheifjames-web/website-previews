@@ -12,6 +12,9 @@ test('private client package serves only public assets, keeps recipient server-s
     const result = await prepareClient({ site: 'ec-plumbing', domain: 'client.example', recipient: 'owner@example.com', sender: 'forms@forms.client.example', mode: 'preview' }, output);
     const config = JSON.parse(await readFile(result.configPath, 'utf8'));
     const html = await readFile(join(result.directory, 'public', 'index.html'), 'utf8');
+    const worker = await readFile(join(result.directory, 'worker.mjs'), 'utf8');
+    assert.equal(config.main, './worker.mjs');
+    assert.match(worker, /export function createHandler/);
     assert.equal(config.assets.directory, './public');
     assert.deepEqual(config.assets.run_worker_first, ['/api/*']);
     assert.equal(config.send_email[0].destination_address, 'owner@example.com');

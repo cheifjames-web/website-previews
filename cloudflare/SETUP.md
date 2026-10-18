@@ -33,7 +33,7 @@ npm run client:prepare -- --config C:\private\client.json
 npx wrangler deploy --dry-run --config clients/<site-id>/wrangler.jsonc
 ```
 
-The generated `clients/<site-id>/` directory is Git-ignored and must stay private. It contains only the public page/assets plus a separate server configuration. The output will not overwrite an existing client package. Review/archive the earlier package before generating a replacement. The API worker runs before assets for `/api/*`; static pages load directly without the Muse wrapper.
+The generated `clients/<site-id>/` directory is Git-ignored and must stay private. It contains the public page/assets, its own copy of the Worker code, and separate server configuration. It does not depend on the other preview sites or an external source-code path. The output will not overwrite an existing client package. Review/archive the earlier package before generating a replacement. The API worker runs before assets for `/api/*`; static pages load directly without the Muse wrapper.
 
 ## Configure and deploy after approval
 

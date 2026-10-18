@@ -1,5 +1,5 @@
 import { readFile, writeFile, mkdir, copyFile, access } from 'node:fs/promises';
-import { resolve, relative, join } from 'node:path';
+import { resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sites } from './sites.mjs';
 import { validEmail } from '../cloudflare/worker.mjs';
@@ -29,11 +29,9 @@ export async function prepareClient(config, outputRoot) {
   await mkdir(join(target, 'public', 'assets'), { recursive: true });
   await writeFile(join(target, 'public', 'index.html'), html, 'utf8');
   for (const asset of ['contact-form.css', 'contact-form.js']) await copyFile(join(root, 'assets', asset), join(target, 'public', 'assets', asset));
-  const workerPath = fileURLToPath(new URL('../cloudflare/worker.mjs', import.meta.url));
-  const relativeMain = relative(target, workerPath).replaceAll('\\', '/');
+  await copyFile(join(root, 'cloudflare', 'worker.mjs'), join(target, 'worker.mjs'));
   const wrangler = {
-    '$schema': '../../node_modules/wrangler/config-schema.json',
-    name: `jb-${site.id}-contact`, main: relativeMain, compatibility_date: '2026-10-17', workers_dev: false,
+    name: `jb-${site.id}-contact`, main: './worker.mjs', compatibility_date: '2026-10-17', workers_dev: false,
     routes: [{ pattern: domain, custom_domain: true }],
     assets: { directory: './public', binding: 'ASSETS', run_worker_first: ['/api/*'] },
     send_email: [{ name: 'CONTACT_EMAIL', destination_address: config.recipient }],
