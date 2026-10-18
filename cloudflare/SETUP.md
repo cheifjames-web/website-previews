@@ -1,6 +1,6 @@
 # Client domain and contact-form setup
 
-This is a reusable launch package. The four public design previews have demo forms that send nothing. A live client needs their own approved domain, Cloudflare access, designated inbox and completed verification. No domain purchase, DNS change, account/plan activation, or real email is performed by the preparation script.
+This is a reusable launch package. The design previews have demo forms that send nothing. A live client needs their own approved domain, Cloudflare access, designated inbox and completed verification. No domain purchase, DNS change, account/plan activation, or real email is performed by the preparation script.
 
 ## Domain ownership
 
@@ -25,6 +25,12 @@ Install dependencies with `npm ci`. Copy `cloudflare/client.example.json` to a *
 - `taco-shop-mexican-grill`
 - `ec-plumbing`
 - `el-palacio`
+- `tacos-puro-jalisco`
+- `los-altos-mexican-food`
+- `twizt-da-barber`
+- `pineda-landscape`
+- `west-highland-dog-and-cat-hospital`
+- `university-ave-pizzeria`
 
 Keep `mode: "preview"` until the owner approves launch and the recipient is verified. For live preparation set `mode: "live"`, `launchApproved: true`, and `recipientVerified: true` only after those steps actually happen. These flags record operator confirmation; they do not independently verify Cloudflare state.
 
@@ -49,7 +55,7 @@ The form accepts bounded text, verifies Turnstile on the server, rejects a honey
 
 ## Validation
 
-`npm test` covers routing, fixed recipients, Reply-To, origin/size/input validation, token hostname/action failures, disabled deployments and provider failures with in-memory mail and verification doubles. It sends **no real email**. `npm run dev:preview` serves the four demo forms on loopback for browser checks. Wrangler dry-run validates packaging and bindings; it is not a live email or DNS test.
+`npm test` covers routing, fixed recipients, Reply-To, origin/size/input validation, token hostname/action failures, disabled deployments and provider failures with in-memory mail and verification doubles. It sends **no real email**. `npm run dev:preview` serves the catalog’s demo forms on loopback for browser checks. Wrangler dry-run validates packaging and bindings; it is not a live email or DNS test.
 
 ## Current primary references
 

@@ -14,7 +14,7 @@ for (const site of sites) {
   }
   if (!html.includes('</head>') || !html.includes('</body>') || !/<footer[\s>]/i.test(html)) throw new Error(`Cannot safely locate form position: ${site.id}`);
   html = html.replace('</head>', '  <link rel="stylesheet" href="../assets/contact-form.css">\n</head>');
-  html = html.replace(/<footer(?=[\s>])/i, `<section id="contact" data-contact-form data-contact-mode="preview" style="--form-accent:${site.accent}" aria-label="Contact form preview"><noscript>The message form needs JavaScript. You can call using the phone number on this page.</noscript></section>\n<footer`);
+  html = html.replace(/<footer(?=[\s>])/i, `<section id="contact" data-contact-form data-contact-mode="preview" style="--form-accent:${site.accent}" aria-label="Contact form preview"><noscript>The message form needs JavaScript. Use the contact details or profile links on this page.</noscript></section>\n<footer`);
   html = html.replace('</body>', '  <script src="../assets/contact-form.js" defer></script>\n</body>');
   await writeFile(path, html, 'utf8');
   console.log(`Added preview-only form: ${fileURLToPath(path)}`);

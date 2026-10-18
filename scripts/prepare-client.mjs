@@ -6,7 +6,7 @@ import { validEmail } from '../cloudflare/worker.mjs';
 
 export async function prepareClient(config, outputRoot) {
   const site = sites.find(item => item.id === config.site);
-  if (!site) throw new Error('Select one of the four supported site IDs.');
+  if (!site) throw new Error('Select a supported site ID from scripts/sites.mjs.');
   const domain = config.domain?.toLowerCase();
   if (!domain || domain.length > 253 || !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(domain)) throw new Error('Use a domain name only, without https, paths, or Unicode.');
   if (!validEmail(config.recipient) || !validEmail(config.sender)) throw new Error('A valid designated recipient and domain sender are required.');
