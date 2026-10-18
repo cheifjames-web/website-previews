@@ -1,0 +1,18 @@
+.jb-contact { --form-accent: #194a69; box-sizing: border-box; max-width: 900px; margin: 3rem auto; padding: clamp(1.25rem, 4vw, 2.5rem); background: #fffaf2; color: #253342; border: 1px solid #d9d5ca; border-radius: 16px; font: 16px/1.6 system-ui, sans-serif; }
+.jb-contact * { box-sizing: border-box; }
+.jb-contact { scroll-margin-top: 6rem; }
+.jb-contact h2 { color: #253342; font: 700 clamp(1.5rem, 4vw, 2rem)/1.2 system-ui, sans-serif; margin: 0 0 .75rem; }
+.jb-contact p { margin: .6rem 0 1rem; }
+.jb-contact .jb-demo { color: #704b13; padding: .65rem .85rem; background: #fff0c8; border-radius: 6px; }
+.jb-contact form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.jb-contact .jb-wide, .jb-contact form > p, .jb-contact form > button { grid-column: 1 / -1; }
+.jb-contact label { display: grid; gap: .3rem; font-weight: 650; }
+.jb-contact input, .jb-contact textarea { display: block; width: 100%; padding: .75rem; color: #1c2935; background: white; border: 1px solid #8b969e; border-radius: 6px; font: inherit; }
+.jb-contact textarea { min-height: 150px; resize: vertical; }
+.jb-contact input:focus-visible, .jb-contact textarea:focus-visible, .jb-contact button:focus-visible { outline: 3px solid var(--form-accent); outline-offset: 3px; }
+.jb-contact button { justify-self: start; padding: .8rem 1.2rem; border: 0; border-radius: 6px; background: var(--form-accent); color: #fff; font: 700 1rem system-ui, sans-serif; cursor: pointer; }
+.jb-contact button:disabled { opacity: .6; cursor: wait; }
+.jb-contact .jb-status { min-height: 1.6em; margin: 0; font-weight: 600; }
+.jb-contact .jb-privacy { color: #53616d; font-size: .88rem; }
+.jb-contact .jb-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 600px) { .jb-contact { margin: 2rem 1rem; } .jb-contact form { grid-template-columns: 1fr; } }

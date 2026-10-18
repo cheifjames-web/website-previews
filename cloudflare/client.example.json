@@ -1,0 +1,10 @@
+{
+  "site": "ec-plumbing",
+  "domain": "client.example",
+  "recipient": "owner@example.com",
+  "sender": "forms@forms.client.example",
+  "turnstileSiteKey": "REPLACE_WITH_CLIENT_SITE_KEY",
+  "mode": "preview",
+  "launchApproved": false,
+  "recipientVerified": false
+}

@@ -1,0 +1,17 @@
+{
+  "name": "james-brown-website-previews",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "forms:install": "node scripts/install-preview-forms.mjs",
+    "client:prepare": "node scripts/prepare-client.mjs",
+    "dev:preview": "node scripts/preview-server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.1"
+  }
+}

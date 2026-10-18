@@ -8,3 +8,7 @@ These pages are design concepts only. They are **not** the official or live webs
 - [Taco Shop Mexican Grill — preview](taco-shop-mexican-grill/)
 - [EC Plumbing — preview](ec-plumbing/)
 - [El Palacio Nightclub & Restaurant — preview](el-palacio/)
+
+Each preview includes a clearly labeled demonstration contact form. It does **not** send email or contact the business. The client-launch package supports a same-origin Cloudflare Worker with one designated email recipient per site; production sending is disabled until that client's domain, recipient and verification settings are supplied.
+
+See [Cloudflare client setup](cloudflare/SETUP.md) for domain ownership, email verification, configuration and the required real receipt test. GitHub Pages serves the demonstrations only; it does not run the email backend.
